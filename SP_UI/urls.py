@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from views import index, tables
+from views import index, tables, least_used, char_bigrams, comparisons
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^tables$', tables, name='tables'),
+    url(r'^least_used$', least_used, name='least_used'),
+    url(r'^character_bigrams$', char_bigrams, name='char_bigram'),
+    url(r'(?P<word>[0-9A-Za-z._%+-]+)', comparisons, name='comparisons'),
 ]
 

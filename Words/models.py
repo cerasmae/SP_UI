@@ -21,3 +21,17 @@ class Year_Used(models.Model):
 
 	class Meta:
 		unique_together = (("year", "word"),)
+
+class CharBigram(models.Model):
+	cbigram = models.CharField(max_length = 2)
+	tf_idf = models.FloatField()
+
+	def __str__(self):
+		return self.cbigram
+
+class WordBigram(models.Model):
+	wbigram = models.CharField(max_length = 256)
+	tf_idf = models.FloatField()
+
+	def __str__(self):
+		return self.wbigram
