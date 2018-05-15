@@ -6,11 +6,18 @@ from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
-class Words(models.Model):
-	word = models.CharField(max_length = 255)
+class Word(models.Model):
+	word = models.CharField(max_length = 256)
 	# years = ArrayField(models.CharField(max_length=10), null = True)
 	# sources = ArrayField(models.CharField(max_length = 255), null = True)
 	tf_idf = models.FloatField()
 
 	def __str__(self):
 		return self.word
+
+class Year_Used(models.Model):
+	year = models.PositiveIntegerField()
+	word = models.CharField(max_length = 256)
+
+	class Meta:
+		unique_together = (("year", "word"),)

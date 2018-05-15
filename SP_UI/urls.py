@@ -23,3 +23,4 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^tables$', tables, name='tables'),
 ]
+
