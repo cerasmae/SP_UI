@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block pagecontent %}
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>TF-IDF Results: {{ title }}</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Character Bigram</th>
+                  <th>TF-IDF Weight</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Character Bigram</th>
+                  <th>TF-IDF Weight</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {% for word in top_100 %}
+                  <tr>
+                    <td><a href="{% url 'cb_comparisons' word=word.cbigram %}">{{ word.cbigram }}</a></td>
+                    <td>{{ word.tf_idf }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+      </div>
+
+{% endblock %}

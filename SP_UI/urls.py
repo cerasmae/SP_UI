@@ -16,14 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from views import index, tables, least_used, char_bigrams, comparisons
+import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name='index'),
-    url(r'^tables$', tables, name='tables'),
-    url(r'^least_used$', least_used, name='least_used'),
-    url(r'^character_bigrams$', char_bigrams, name='char_bigram'),
-    url(r'(?P<word>[0-9A-Za-z._%+-]+)', comparisons, name='comparisons'),
+    url(r'^$', views.index, name='index'),
+    url(r'^least_used$', views.least_used, name='least_used'),
+    url(r'^character_bigrams$', views.char_bigrams, name='char_bigram'),
+    url(r'^unigram/(?P<word>[0-9A-Za-z._%+-]+)', views.comparisons, name='comparisons'),
+    url(r'^word_bigrams$', views.word_bigrams, name='word_bigram'),
+    url(r'^char_bigrams/(?P<word>[0-9A-Za-z._%+-]+)', views.cb_comparisons, name='cb_comparisons'),
+    url(r'^word_bigrams/(?P<word>[0-9A-Za-z._%+-]+( [a-zA-Z0-9_]+))', views.wb_comparisons, name='wb_comparisons'),
+    url(r'^unique_words/(?P<starts>[0-9A-Za-z._%+-]+)', views.sectioning, name='sectioning'),
+    url(r'^unique_word_bigrams/(?P<starts>[0-9A-Za-z._%+-]+)', views.sectioning_wb, name='sectioning_wb'),
 ]
-

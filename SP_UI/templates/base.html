@@ -25,10 +25,10 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav" >
     <a class="navbar-brand" href="index">Cebuano Orthography</a>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+    <div class="collapse navbar-collapse" id="navbarResponsive" style="overflow-y: scroll;">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion"  style="overflow-y: scroll;">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{% url 'index' %}">
             <i class="fa fa-fw fa-dashboard"></i>
@@ -48,10 +48,96 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="/">Word Bigrams</a>
+              <a href="{% url 'word_bigram' %}">Word Bigrams</a>
             </li>
             <li>
               <a href="{% url 'char_bigram' %}">Character Bigrams</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages 2">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Word Bigrams</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseExamplePages2">
+            <li>
+              <a href="{% url 'sectioning_wb' starts='A' %}">A</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='B' %}">B</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='C' %}">C</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='D' %}">D</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='E' %}">E</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='F' %}">F</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='G' %}">G</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='H' %}">H</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='I' %}">I</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='J' %}">J</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='K' %}">K</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='L' %}">L</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='M' %}">M</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='N' %}">N</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='O' %}">O</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='P' %}">P</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='Q' %}">Q</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='R' %}">R</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='S' %}">S</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='T' %}">T</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='U' %}">U</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='V' %}">V</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='W' %}">W</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='X' %}">X</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='Y' %}">Y</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning_wb' starts='Z' %}">Z</a>
             </li>
           </ul>
         </li>
@@ -62,20 +148,85 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="/">Login Page</a>
+              <a href="{% url 'sectioning' starts='A' %}">A</a>
             </li>
             <li>
-              <a href="/">Registration Page</a>
+              <a href="{% url 'sectioning' starts='B' %}">B</a>
             </li>
             <li>
-              <a href="/">Forgot Password Page</a>
+              <a href="{% url 'sectioning' starts='C' %}">C</a>
             </li>
             <li>
-              <a href="/">Blank Page</a>
+              <a href="{% url 'sectioning' starts='D' %}">D</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='E' %}">E</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='F' %}">F</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='G' %}">G</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='H' %}">H</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='I' %}">I</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='J' %}">J</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='K' %}">K</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='L' %}">L</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='M' %}">M</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='N' %}">N</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='O' %}">O</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='P' %}">P</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='Q' %}">Q</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='R' %}">R</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='S' %}">S</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='T' %}">T</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='U' %}">U</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='V' %}">V</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='W' %}">W</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='X' %}">X</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='Y' %}">Y</a>
+            </li>
+            <li>
+              <a href="{% url 'sectioning' starts='Z' %}">Z</a>
             </li>
           </ul>
         </li>
-        
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -121,6 +272,19 @@
     <script src="{% static 'js/sb-admin-datatables.min.js' %}"></script>
     <script language="JavaScript" type="text/javascript" src="{% static 'js/canvasjs.min.js' %}"></script>
     <script language="JavaScript" type="text/javascript" src="{% static 'js/jquery.canvasjs.min.js' %}"></script>
+    <script>
+
+      var topNavBar = 50;
+      var footer = 48;
+      var height = $(window).height();
+      $('#collapseExamplePages').css('height', (height - (topNavBar+footer)));
+
+      $(window).resize(function(){
+          var height = $(window).height();
+          $('#collapseExamplePages').css('height', (height - (topNavBar+footer)));
+      });
+
+    </script>
   </div>
 
     {% block script %} {% endblock %}
