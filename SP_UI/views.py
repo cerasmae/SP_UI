@@ -51,20 +51,20 @@ def word_bigrams(request):
 
 def char_map(ch):
 	if ch == 'k':
-		return ['c']
+		return ['c', ch]
 	if ch == 'c':
-		return ['k']
+		return ['k', ch]
 	if ch == 'o':
-		return ['u']
+		return ['u', ch]
 	if ch == 'u':
-		return ['o', 'w']
+		return ['o', 'w', ch]
 	if ch == 'i':
-		return ['e']
+		return ['e', ch]
 	if ch == 'e':
-		return ['i']
+		return ['i', ch]
 	if ch == 'l':
-		return ['w', 'y']
-	return '$'
+		return ['w', 'y', ch]
+	return [ch]
 
 def comparisons(request, word):
 	next_ch = word
@@ -79,37 +79,21 @@ def comparisons(request, word):
 		possibilities = []
 
 		for cc in chars:
-			flag = False
 			if len(prev_chs) > 0:
 				for pc in prev_chs:
-					if cc == "$":
-						flag = True
-						possibilities.append(pc+ch)
-					else:
-						possibilities.append(pc+cc)
-
-				if not flag:
-					possibilities.append(pc+ch)
+					possibilities.append(pc+cc)
 			else:
-				if cc == "$":
-					flag = True
-					possibilities.append(ch)
-				else:
-					possibilities.append(cc)
-
-			possibilities.append(ch)
+				possibilities.append(cc)
 
 		prev_chs = possibilities[:]
 
 	prev_chs = list(OrderedDict.fromkeys(prev_chs))
+	# print prev_chs
 
 	for prevs in prev_chs:
-		if prevs != word:
-			comp = Word.objects.filter(word=prevs).first()
-			if comp:
-				comparisons.append(comp)
-
-	comparisons.append(Word.objects.filter(word=word).first())
+		comp = Word.objects.filter(word=prevs).first()
+		if comp:
+			comparisons.append(comp)
 
 	return render(request, 'index.html', {"top_100": comparisons, "word": word})
 
@@ -144,8 +128,8 @@ def cb_comparisons(request, word):
 				else:
 					possibilities.append(cc)
 
-			if not flag:
-				possibilities.append(ch)
+			# if not flag:
+			possibilities.append(ch)
 
 		prev_chs = possibilities[:]
 
@@ -193,7 +177,7 @@ def wb_comparisons(request, word):
 				else:
 					possibilities.append(cc)
 
-			if not flag:
+			# if not flag:
 				possibilities.append(ch)
 
 		prev_chs = possibilities[:]
